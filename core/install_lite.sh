@@ -533,13 +533,3 @@ echo "📋 运行日志路径: ${INSTALL_DIR}/logs/sentinel.log"
 echo "🗑️ 若未来需卸载，请执行: bash ${INSTALL_DIR}/core/uninstall.sh"
 echo "========================================================"
 
-# 匿名装机统计
-echo -e "\n📡 正在向开源社区汇报装机量 (完全匿名，不收集IP)..."
-AGENT_COUNT=$(curl -s -m 3 "https://ip-sentinel-count.samanthaestime296.workers.dev/ping/agent" || echo "")
-
-if [ -n "$AGENT_COUNT" ] && [[ "$AGENT_COUNT" =~ ^[0-9]+$ ]]; then
-    echo -e "\033[32m✅ 感谢您成为全球第 ${AGENT_COUNT} 名 IP-Sentinel 哨兵！\033[0m"
-else
-    echo -e "\033[32m✅ 感谢您加入 IP-Sentinel 哨兵阵列！\033[0m"
-fi
-echo -e "\n"
